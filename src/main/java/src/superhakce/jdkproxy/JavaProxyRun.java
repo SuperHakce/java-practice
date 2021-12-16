@@ -10,7 +10,7 @@ import java.lang.reflect.Proxy;
 public class JavaProxyRun {
 
     public void run() throws Exception{
-        Woman woman = new ChinaWoman();
+        Woman woman = new ChinaWoman("钟碧泉");
         InvocationHandlerImpl invocationHandler = new InvocationHandlerImpl(woman);
         ClassLoader classLoader = woman.getClass().getClassLoader();
         Class[] interfaces = woman.getClass().getInterfaces();
@@ -21,7 +21,7 @@ public class JavaProxyRun {
         Class[] a = {Woman.class};
         byte[] proxyClassFile = ProxyGenerator.generateProxyClass(
                 "src.superhakce.heqingjiang", a, 17);
-        File file = new File("D://REVIEW//jvm-operation//Heqingjiang.class");
+        File file = new File("D://CODE//java-practice//java-practice//heqingjiang.class");
         OutputStream outputStream = new FileOutputStream(file);
         outputStream.write(proxyClassFile);
         outputStream.close();
