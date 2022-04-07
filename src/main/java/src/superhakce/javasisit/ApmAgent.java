@@ -8,7 +8,6 @@ import java.io.FileOutputStream;
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.security.ProtectionDomain;
-import java.util.Objects;
 
 /**
  * Agent
@@ -16,7 +15,11 @@ import java.util.Objects;
  */
 public class ApmAgent implements ClassFileTransformer {
 
+    @Override
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
+        if(!className.contains("MyClassLoaderOne")){
+            return classfileBuffer;
+        }
         ClassPool classPool = new ClassPool(true);
         classPool.appendClassPath(new LoaderClassPath(loader));
         try {
@@ -41,7 +44,7 @@ public class ApmAgent implements ClassFileTransformer {
             fileOutputStream.write(ctClass.toBytecode());
             return ctClass.toBytecode();
         }catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         return null;
     }

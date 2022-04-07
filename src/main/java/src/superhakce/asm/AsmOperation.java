@@ -10,7 +10,7 @@ import java.io.InputStream;
 
 public class AsmOperation {
 
-    private final static String classMessage = "D://REVIEW//jvm-operation//Heqingjiang.class";
+    private final static String classMessage = "D://CODE//java-practice//java-practice//Heqingjiang.class";
 
     public void createClass() throws Exception{
         ClassWriter classWriter = new ClassWriter(0);

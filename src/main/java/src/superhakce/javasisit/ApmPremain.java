@@ -4,6 +4,7 @@ import java.lang.instrument.Instrumentation;
 
 /**
  * Premain
+ * -javaagent:D:\CODE\java-practice\java-practice\target\java-practice-1.0-SNAPSHOT.jar
  * @author 00762453
  */
 public class ApmPremain {

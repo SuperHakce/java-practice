@@ -1,13 +1,12 @@
 package src.superhakce;
 
-import src.superhakce.designpattern.SerializeSingleton;
-import src.superhakce.jdkproxy.JavaProxyRun;
+import src.superhakce.classloader.CLassLoaderTest;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        JavaProxyRun javaProxyRun = new JavaProxyRun();
-        javaProxyRun.run();
+        CLassLoaderTest cLassLoaderTest = new CLassLoaderTest();
+        cLassLoaderTest.run();
     }
 
 }
